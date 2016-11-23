@@ -3,11 +3,11 @@ require "correios_slack_bot/correios"
 module CorreiosSlackBot
   class Bot < SlackRubyBot::Bot
     match /^Pacote (?<pacote>\w*)$/ do |client, data, match|
-      historico = CorreiosSlackBot::Correios.new(match[:pacote]).package_log
-      result = historico.map do |registro|
+      package_log = CorreiosSlackBot::Correios.new(match[:pacote]).package_log
+      result = package_log.map do |log|
         {
-          title: "#{registro[:date]} - #{registro[:origin]}",
-          text: "#{registro[:description]} (#{registro[:status]})"
+          title: "#{log[:date]} - #{log[:origin]}",
+          text: "#{log[:description]} (#{log[:status]})"
         }
       end
       client.web_client.chat_postMessage(
