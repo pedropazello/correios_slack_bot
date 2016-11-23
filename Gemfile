@@ -6,3 +6,7 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'slack-ruby-bot'
 gem 'celluloid-io'
+group :test do
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+end
