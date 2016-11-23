@@ -1,8 +1,9 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.3.1
+- 2.3.1
 before_install: gem install bundler -v 1.13.6
 after_script: CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN bundle exec codeclimate-test-reporter
 notifications:
-  slack: $SLACK_CHANNEL_TOKEN
+  slack:
+    secure: qR7VlOWb+ZNq6+e1IQTVoFjfqDFO0qNhHmHN1HH2ZiBlWRu9w0cemRpQdw8t5U/UICkIha0TwVLTQQIp/BrBXBb8qm/8UfE20YWamRaXF/DspudkHpiexRUJ9x33xPMP/jKYahbPImiovFR2RTLsrz1612kiW+OvvVBx1bAXyCrg+ZY2AOD+jYJfvDMNNm2U7uNquP4QQIuLlJ3H8qdY1Xbs/XPitP/69BZdZbcJRbOL8xplIHmYWfF/KrYFO5qnlBZYAraFp1l8cte5U38YIMzyBYllv5Jnjr26b5nBejampuUhPeI4cMAoux17yvBeekgEi9svThaIvBEgQQ8OnLoYnY1ueFESwDfz2YeiOhMRGt0BTpcmmGJkx1O5ny45sy8YK83fB8TYqeu82UXbcnB5sdpEAoVC5ETlSHM8iz+3LWDsaRBU8Vem9TUwn1VPIzIYxlo97UO6KbyPsXaeNyu2G5CHoR7o+IpdiR3qrWqHoEbZSjzPPqcuFmwK8zOq5j4K8JmH2Zj2ZKkBi3MtlzKUu1knHH+qO6oqMRsD5EboJmzA7OLyTv4+FWHIWgUWtKfs0N8O6cBPGaxadWgvmjdE++AunF7BZWnYuCTXfS2Z9jjDv7FOrpZIuki1CRmGQg/iTp6+dfounU09R+2AM9Pn5u6JpdqhQjI+dJe92tg=
