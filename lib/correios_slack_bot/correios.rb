@@ -1,5 +1,5 @@
 require 'httparty'
-require 'nokogiri'
+require 'correios_slack_bot/correios_scraper'
 
 module CorreiosSlackBot
   class Correios
@@ -9,19 +9,17 @@ module CorreiosSlackBot
     end
 
     def package_log
-      values = []
-      response = HTTParty.get("#{BASE_URL}P_COD_UNI=#{@package_code}")
-      doc = Nokogiri::HTML(response)
-        doc.xpath('//table//tr').drop(1).each_with_index do |tr, index|
-        next if tr.children[1].nil?
-        line = {}
-        line[:date] = tr.children[0].text
-        line[:origin] = tr.children[1].text
-        line[:status] = tr.children[2].text
-        line[:description] = doc.xpath('//table//tr').drop(1)[index + 1].children.text if doc.xpath('//table//tr').drop(1)[index + 1]
-        values << line
-      end
-      values
+      correios_scraper.parsed_package_log
+    end
+
+    private
+
+    def correios_scraper
+      @correios_scraper ||= CorreiosScraper.new(correios_response)
+    end
+
+    def correios_response
+      HTTParty.get("#{BASE_URL}P_COD_UNI=#{@package_code}")
     end
   end
 end
