@@ -1,7 +1,6 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "correios_slack_bot"
 require "correios_slack_bot/correios"
-require "correios_slack_bot/correios_monitor"
 require "vcr"
 require "simplecov"
 SimpleCov.start
