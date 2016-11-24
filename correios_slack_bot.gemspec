@@ -39,4 +39,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "pry"
+  spec.add_dependency "httparty"
+  spec.add_dependency "nokogiri"
+  spec.add_dependency "slack-ruby-bot"
+  spec.add_dependency "celluloid-io"
 end
