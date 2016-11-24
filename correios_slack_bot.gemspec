@@ -29,18 +29,18 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = "bin"
+  spec.executables   = ["correios_slack_bot"]
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "vcr"
-  spec.add_development_dependency "webmock"
-  spec.add_development_dependency "pry"
-  spec.add_dependency "httparty"
-  spec.add_dependency "nokogiri"
-  spec.add_dependency "slack-ruby-bot"
-  spec.add_dependency "celluloid-io"
+  spec.add_development_dependency "vcr", "~> 3.0"
+  spec.add_development_dependency "webmock", "~> 2.1"
+  spec.add_development_dependency "pry", "~> 0.10.4"
+  spec.add_dependency "httparty", "~> 0.14.0"
+  spec.add_dependency "nokogiri", "~> 1.6"
+  spec.add_dependency "slack-ruby-bot", "~> 0.9.0"
+  spec.add_dependency "celluloid-io", "~> 0.17.3"
 end
