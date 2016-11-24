@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
-require "correios_slack_bot"
-CorreiosSlackBot::Bot.run
+require "daemons"
+Daemons.run('lib/run.rb')

@@ -33,7 +33,7 @@ module CorreiosSlackBot
             channel: data.channel,
             as_user: true,
             attachments: [
-              title: "Nova atualização : #{last_change[:date]} - #{last_change[:origin]}",
+              title: "Última atualização : #{last_change[:date]} - #{last_change[:origin]}",
               text: "#{last_change[:description]} (#{last_change[:status]})"
             ]
           )
