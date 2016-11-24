@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe CorreiosSlackBot::CorreiosMonitor do
   before do
-    VCR.insert_cassette('package_log')
+    VCR.insert_cassette('package_log', record: :new_episodes)
   end
 
   after do
@@ -43,15 +43,6 @@ describe CorreiosSlackBot::CorreiosMonitor do
         )
       end
     end
-
-    describe '#monitor' do
-      it do
-        changed = Proc.new { 'changed'  }
-        not_changed = Proc.new { 'not changed' }
-        expect(correios_monitor.monitor(when_change: changed,
-          when_not_change: not_changed)).to eq('changed')
-      end
-    end
   end
 
   context 'when package log not changes' do
@@ -73,15 +64,6 @@ describe CorreiosSlackBot::CorreiosMonitor do
             description: 'Em trânsito para CDD DEODORO - Rio De Janeiro/RJ'
           }
         )
-      end
-    end
-
-    describe '#monitor' do
-      it do
-        changed = Proc.new { 'changed'  }
-        not_changed = Proc.new { 'not changed' }
-        expect(correios_monitor.monitor(when_change: changed,
-          when_not_change: not_changed)).to eq('not changed')
       end
     end
   end
