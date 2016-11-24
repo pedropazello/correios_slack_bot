@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
+require File.expand_path("../../lib/correios_slack_bot_server.rb", __FILE__)
 require "daemons"
-require "correios_slack_bot"
-Daemons.run('lib/correios_slack_bot_server.rb', dir: '/var/tmp', dir_mode: :normal, ontop: false)
+Daemons.run("correios_slack_bot_server.rb", dir: '/var/tmp', dir_mode: :normal, ontop: false)
